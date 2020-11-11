@@ -37,6 +37,7 @@
             this.openGLControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.openGLControl.BackColor = System.Drawing.Color.White;
             this.openGLControl.DrawFPS = false;
+            this.openGLControl.FrameRate = 120;
             this.openGLControl.Location = new System.Drawing.Point(12, 113);
             this.openGLControl.Name = "openGLControl";
             this.openGLControl.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
@@ -48,6 +49,9 @@
             this.openGLControl.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
             this.openGLControl.Resized += new System.EventHandler(this.openGLControl_Resized);
             this.openGLControl.Load += new System.EventHandler(this.openGLControl_Load);
+            this.openGLControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openGLControl_MouseDown);
+            this.openGLControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.openGLControl_MouseMove);
+            this.openGLControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.openGLControl_MouseUp);
             // 
             // Form1
             // 
@@ -60,7 +64,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Simple drawings";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).EndInit();
             this.ResumeLayout(false);
 

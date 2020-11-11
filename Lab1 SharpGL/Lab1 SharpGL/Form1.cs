@@ -13,6 +13,8 @@ namespace Lab1_SharpGL
 {
     public partial class Form1 : Form
     {
+        List<Line> _objs = new List<Line>();
+
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +22,6 @@ namespace Lab1_SharpGL
 
         private void openGLControl_OpenGLInitialized(object sender, EventArgs e)
         {
-            System.Console.WriteLine("Init");
             OpenGL gl = openGLControl.OpenGL;
 
             gl.ClearColor(0, 0, 0, 0);
@@ -32,7 +33,6 @@ namespace Lab1_SharpGL
 
         private void openGLControl_Resized(object sender, EventArgs e)
         {
-            System.Console.WriteLine("Resize");
             OpenGL gl = openGLControl.OpenGL;
 
             gl.MatrixMode(OpenGL.GL_PROJECTION);
@@ -61,6 +61,36 @@ namespace Lab1_SharpGL
         }
 
 
-        List<Line> _objs = new List<Line>();
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openGLControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                Line l = new Line();
+                l.PStart = l.PEnd = e.Location;
+                _objs.Add(l);
+            }
+        }
+
+        private void openGLControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                int len = _objs.Count;
+                if (len > 0)
+                    _objs[len - 1].PEnd = e.Location;
+            }
+        }
+
+        private void openGLControl_MouseUp(object sender, MouseEventArgs e)
+        {
+            int len = _objs.Count;
+            if (len > 0)
+                _objs[len - 1].PEnd = e.Location;
+        }
     }
 }
