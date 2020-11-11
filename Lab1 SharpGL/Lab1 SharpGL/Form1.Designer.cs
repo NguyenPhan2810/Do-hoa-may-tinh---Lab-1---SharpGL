@@ -28,13 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.openGLControl = new SharpGL.OpenGLControl();
+            ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // openGLControl
+            // 
+            this.openGLControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openGLControl.BackColor = System.Drawing.Color.White;
+            this.openGLControl.DrawFPS = false;
+            this.openGLControl.Location = new System.Drawing.Point(12, 113);
+            this.openGLControl.Name = "openGLControl";
+            this.openGLControl.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
+            this.openGLControl.RenderContextType = SharpGL.RenderContextType.DIBSection;
+            this.openGLControl.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
+            this.openGLControl.Size = new System.Drawing.Size(760, 436);
+            this.openGLControl.TabIndex = 0;
+            this.openGLControl.OpenGLInitialized += new System.EventHandler(this.openGLControl_OpenGLInitialized);
+            this.openGLControl.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
+            this.openGLControl.Resized += new System.EventHandler(this.openGLControl_Resized);
+            this.openGLControl.Load += new System.EventHandler(this.openGLControl_Load);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.openGLControl);
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private SharpGL.OpenGLControl openGLControl;
     }
 }
 

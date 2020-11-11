@@ -1,0 +1,20 @@
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\Lab1 SharpGL.exe.config
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\Lab1 SharpGL.exe
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\Lab1 SharpGL.pdb
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.dll
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.WinForms.dll
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.SceneGraph.dll
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.pdb
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.xml
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.WinForms.pdb
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.WinForms.xml
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.SceneGraph.pdb
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\bin\Debug\SharpGL.SceneGraph.xml
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.csprojAssemblyReference.cache
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1_SharpGL.Form1.resources
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1_SharpGL.Properties.Resources.resources
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.csproj.GenerateResource.cache
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.csproj.CoreCompileInputs.cache
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.csproj.CopyComplete
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.exe
+D:\Data\Do hoa may tinh\Source code\Lab1 SharpGL\Lab1 SharpGL\obj\Debug\Lab1 SharpGL.pdb

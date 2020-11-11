@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SharpGL;
 
 namespace Lab1_SharpGL
 {
@@ -16,5 +17,50 @@ namespace Lab1_SharpGL
         {
             InitializeComponent();
         }
+
+        private void openGLControl_OpenGLInitialized(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("Init");
+            OpenGL gl = openGLControl.OpenGL;
+
+            gl.ClearColor(0, 0, 0, 0);
+
+            gl.MatrixMode(OpenGL.GL_PROJECTION);
+
+            gl.LoadIdentity();
+        }
+
+        private void openGLControl_Resized(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("Resize");
+            OpenGL gl = openGLControl.OpenGL;
+
+            gl.MatrixMode(OpenGL.GL_PROJECTION);
+            gl.LoadIdentity();
+
+            gl.Viewport(0, 0, openGLControl.Width, openGLControl.Height);
+            gl.Ortho2D(0, openGLControl.Width, 0, openGLControl.Height);
+        }
+
+        private void openGLControl_OpenGLDraw(object sender, RenderEventArgs args)
+        {
+            OpenGL gl = openGLControl.OpenGL;
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+            int len = _objs.Count;
+            for (int i = 0; i < len; i++)
+            {
+                _objs[i].Draw(gl);
+            }
+            gl.Flush();
+        }
+
+
+        private void openGLControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        List<Line> _objs = new List<Line>();
     }
 }
