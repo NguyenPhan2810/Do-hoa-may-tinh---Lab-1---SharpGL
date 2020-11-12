@@ -14,6 +14,36 @@ namespace Lab1_SharpGL
         public List<Point>  vPoints;
         public Color        color;
         public float        fThickness;
+        
+        public RectangleF BoundingBox
+        {
+            get
+            {
+
+                if (vPoints.Count < 1)
+                    return new RectangleF();
+
+                Point p = vPoints[0];
+                float left = p.X;
+                float right = p.X;
+                float top = p.Y;
+                float bot = p.Y;
+
+                for(int i = 1; i < vPoints.Count; ++i)
+                {
+                    p = vPoints[i];
+                    if (left > p.X) left = p.X;
+                    if (right < p.X) right = p.X;
+                    if (top > p.Y) top = p.Y;
+                    if (bot < p.Y) bot = p.Y;
+                }
+
+                RectangleF result = new RectangleF(left, top, right - left, bot - top);
+
+                return result;
+            }
+        }
+
 
         public Shape()
         {
@@ -22,6 +52,7 @@ namespace Lab1_SharpGL
             fThickness = 1f;
         }
 
+        #region visuals
         public virtual void event_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -52,5 +83,10 @@ namespace Lab1_SharpGL
             }
             gl.End();
         }
+        #endregion
+
+        #region properties 
+
+        #endregion
     }
 }

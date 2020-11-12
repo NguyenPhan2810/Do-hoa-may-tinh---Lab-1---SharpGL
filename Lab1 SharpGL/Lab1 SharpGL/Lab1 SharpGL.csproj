@@ -58,8 +58,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shape.cs" />
-    <Compile Include="Line.cs" />
+    <Compile Include="source\shapes\Rectangle.cs" />
+    <Compile Include="source\shapes\Shape.cs" />
+    <Compile Include="source\shapes\Line.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
