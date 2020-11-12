@@ -2,39 +2,41 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using SharpGL;
 
 namespace Lab1_SharpGL
 {
-    class Line
+    class Line : Shape
     {
-        Point _pStart = new Point(0, 0);
+        Point start;
+        Point end;
 
-        public Point PStart
+        public Line()
         {
-            get { return _pStart; }
-            set { _pStart = value; }
-        }
-        Point _pEnd = new Point(0, 0);
-
-        public Point PEnd
-        {
-            get { return _pEnd; }
-            set { _pEnd = value; }
+            vColors.Add(Color.FromArgb(255, 255, 255));
         }
 
-        Color _color = Color.White;
-        public void Draw(OpenGL gl)
+        public override void event_MouseMove(object sender, MouseEventArgs e)
         {
-            gl.Color(_color.R / 255.0, _color.G / 255.0, _color.B / 255.0, 0);
-            gl.LineWidth(3.0f);
+            end.X = e.Location.X;
+            end.Y = e.Location.Y;
+        }
 
-            gl.Begin(OpenGL.GL_LINES);
-            gl.Vertex(_pStart.X, gl.RenderContextProvider.Height - _pStart.Y);
-            gl.Vertex(_pEnd.X, gl.RenderContextProvider.Height - _pEnd.Y);
-            gl.End();
+        public override void event_MouseDown(object sender, MouseEventArgs e)
+        {
+            vPoints.Add(new Point(e.Location.X, e.Location.Y));
+            start = vPoints[vPoints.Count - 1];
+            vPoints.Add(new Point(e.Location.X + 100, e.Location.Y));
+            end = vPoints[vPoints.Count - 1];
+        }
+
+        public override void event_MouseUp(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

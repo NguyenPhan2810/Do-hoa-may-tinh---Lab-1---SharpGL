@@ -13,7 +13,8 @@ namespace Lab1_SharpGL
 {
     public partial class Form1 : Form
     {
-        List<Line> _objs = new List<Line>();
+        List<Shape> _vObjects = new List<Shape>();
+        Shape _activeObject = new Shape();
 
         public Form1()
         {
@@ -46,10 +47,10 @@ namespace Lab1_SharpGL
         {
             OpenGL gl = openGLControl.OpenGL;
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-            int len = _objs.Count;
+            int len = _vObjects.Count;
             for (int i = 0; i < len; i++)
             {
-                _objs[i].Draw(gl);
+                _vObjects[i].draw(gl);
             }
             gl.Flush();
         }
@@ -68,29 +69,19 @@ namespace Lab1_SharpGL
 
         private void openGLControl_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                Line l = new Line();
-                l.PStart = l.PEnd = e.Location;
-                _objs.Add(l);
-            }
+            _activeObject = new Line();
+            _vObjects.Add(_activeObject);
+            _activeObject.event_MouseDown(sender, e);
         }
 
         private void openGLControl_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                int len = _objs.Count;
-                if (len > 0)
-                    _objs[len - 1].PEnd = e.Location;
-            }
+            _activeObject.event_MouseMove(sender, e);
         }
 
         private void openGLControl_MouseUp(object sender, MouseEventArgs e)
         {
-            int len = _objs.Count;
-            if (len > 0)
-                _objs[len - 1].PEnd = e.Location;
+            _activeObject.event_MouseUp(sender, e);
         }
     }
 }
