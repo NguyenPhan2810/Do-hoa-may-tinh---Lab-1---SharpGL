@@ -10,28 +10,25 @@ using SharpGL;
 
 namespace Lab1_SharpGL
 {
-    class Line : Shape
+    class Rectangle : Shape
     {
-        Point start;
-        Point end;
-
-        public Line()
+        public Rectangle()
         {
-            vColors.Add(Color.FromArgb(255, 255, 255));
+
         }
 
         public override void event_MouseMove(object sender, MouseEventArgs e)
         {
-            end.X = e.Location.X;
-            end.Y = e.Location.Y;
+            vPoints[1] = e.Location;
         }
 
         public override void event_MouseDown(object sender, MouseEventArgs e)
         {
-            vPoints.Add(new Point(e.Location.X, e.Location.Y));
-            start = vPoints[vPoints.Count - 1];
-            vPoints.Add(new Point(e.Location.X + 100, e.Location.Y));
-            end = vPoints[vPoints.Count - 1];
+            if (e.Button == MouseButtons.Left)
+            {
+                vPoints.Add(e.Location);
+                vPoints.Add(e.Location);
+            }
         }
 
         public override void event_MouseUp(object sender, MouseEventArgs e)

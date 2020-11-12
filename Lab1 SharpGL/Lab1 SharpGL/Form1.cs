@@ -25,7 +25,7 @@ namespace Lab1_SharpGL
         {
             OpenGL gl = openGLControl.OpenGL;
 
-            gl.ClearColor(0, 0, 0, 0);
+            gl.ClearColor(1, 1, 1, 1);
 
             gl.MatrixMode(OpenGL.GL_PROJECTION);
 

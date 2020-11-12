@@ -12,13 +12,13 @@ namespace Lab1_SharpGL
     public class Shape
     {
         public List<Point>  vPoints;
-        public List<Color>  vColors;
+        public Color        color;
         public float        fThickness;
 
         public Shape()
         {
             vPoints = new List<Point>();
-            vColors = new List<Color>();
+            color = Color.Black;
             fThickness = 1f;
         }
 
@@ -41,22 +41,13 @@ namespace Lab1_SharpGL
         {
             gl.LineWidth(fThickness);
 
-            gl.Begin(OpenGL.GL_LINES);
             int n = vPoints.Count;
 
-            Point prevPoint = vPoints[n - 1];
+            gl.Begin(OpenGL.GL_LINE_LOOP);
+            gl.Color(color.R, color.G, color.B);
             for (int i = 0; i < n; ++i)
             {
                 Point point = vPoints[i];
-                Color color;
-                if (vColors.Count == n)
-                    color = vColors[i];
-                else
-                    color = vColors[0];
-                Console.WriteLine(point);
-                Console.WriteLine(prevPoint);
-                gl.Color(color.R, color.G, color.B);
-                gl.Vertex(prevPoint.X, gl.RenderContextProvider.Height - prevPoint.Y);
                 gl.Vertex(point.X, gl.RenderContextProvider.Height - point.Y);
             }
             gl.End();
