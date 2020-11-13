@@ -58,6 +58,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="source\shapes\Hexagon.cs" />
+    <Compile Include="source\shapes\Pentagon.cs" />
+    <Compile Include="source\shapes\Triangle.cs" />
+    <Compile Include="source\shapes\Ellipse.cs" />
+    <Compile Include="source\shapes\Circle.cs" />
     <Compile Include="source\shapes\Rectangle.cs" />
     <Compile Include="source\shapes\Shape.cs" />
     <Compile Include="source\shapes\Line.cs" />

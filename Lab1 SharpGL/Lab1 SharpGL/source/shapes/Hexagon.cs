@@ -10,11 +10,11 @@ using SharpGL;
 
 namespace Lab1_SharpGL
 {
-    class Line : Shape
+    class Hexagon : Shape
     {
         bool isMouseDown;
 
-        public Line()
+        public Hexagon()
         {
             isMouseDown = false;
         }
@@ -23,8 +23,6 @@ namespace Lab1_SharpGL
         {
             if (isMouseDown)
             {
-                vPoints[1] = e.Location;
-
 
             }
         }
@@ -35,8 +33,6 @@ namespace Lab1_SharpGL
             {
                 isMouseDown = true;
 
-                vPoints.Add(e.Location);
-                vPoints.Add(e.Location);
             }
         }
 

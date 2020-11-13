@@ -49,7 +49,7 @@ namespace Lab1_SharpGL
         {
             vPoints = new List<Point>();
             color = Color.Black;
-            fThickness = 1f;
+            fThickness = 5f;
         }
 
         #region visuals
@@ -71,11 +71,11 @@ namespace Lab1_SharpGL
         public virtual void draw(OpenGL gl)
         {
             gl.LineWidth(fThickness);
+            gl.Color(color.R, color.G, color.B);
 
             int n = vPoints.Count;
 
             gl.Begin(OpenGL.GL_LINE_LOOP);
-            gl.Color(color.R, color.G, color.B);
             for (int i = 0; i < n; ++i)
             {
                 Point point = vPoints[i];

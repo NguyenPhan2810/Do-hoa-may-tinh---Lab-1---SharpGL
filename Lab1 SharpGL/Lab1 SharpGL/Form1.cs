@@ -14,11 +14,32 @@ namespace Lab1_SharpGL
     public partial class Form1 : Form
     {
         List<Shape> _vObjects = new List<Shape>();
-        Shape _activeObject = new Shape();
+        int _activeObjectIndex = -1;
+        string _newShape = "";
+        float _shapeThickness = 1f;
+        Color _shapeColor = Color.Black;
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private Shape getNewShape()
+        {
+            Shape newShape;
+            if (_newShape == "Line") newShape = new Line();
+            else if (_newShape == "Rectangle") newShape = new Rectangle();
+            else if (_newShape == "Triangle") newShape = new Triangle();
+            else if (_newShape == "Pentagon") newShape = new Pentagon();
+            else if (_newShape == "Hexagon") newShape = new Hexagon();
+            else if (_newShape == "Circle") newShape = new Circle();
+            else if (_newShape == "Ellipse") newShape = new Ellipse();
+            else newShape = new Shape();
+
+            newShape.color = _shapeColor;
+            newShape.fThickness = _shapeThickness;
+
+            return newShape;
         }
 
         private void openGLControl_OpenGLInitialized(object sender, EventArgs e)
@@ -55,33 +76,60 @@ namespace Lab1_SharpGL
             gl.Flush();
         }
 
-
         private void openGLControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
         private void openGLControl_MouseDown(object sender, MouseEventArgs e)
         {
-            _activeObject = new Line();
-            _vObjects.Add(_activeObject);
-            _activeObject.event_MouseDown(sender, e);
+            _vObjects.Add(getNewShape());
+            _activeObjectIndex = _vObjects.Count - 1;
+            if (_activeObjectIndex >= 0)
+                _vObjects[_activeObjectIndex].event_MouseDown(sender, e);
         }
 
         private void openGLControl_MouseMove(object sender, MouseEventArgs e)
         {
-            _activeObject.event_MouseMove(sender, e);
+            if (_activeObjectIndex >= 0)
+                _vObjects[_activeObjectIndex].event_MouseMove(sender, e);
         }
 
         private void openGLControl_MouseUp(object sender, MouseEventArgs e)
         {
-            _activeObject.event_MouseUp(sender, e);
+            if (_activeObjectIndex >= 0)
+                _vObjects[_activeObjectIndex].event_MouseUp(sender, e);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox1 = (ComboBox)sender;
+            string selectedItem = comboBox1.SelectedItem.ToString();
+            _newShape = selectedItem;            
+        }
+
+        private void ThicknessSelector_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown selector = (NumericUpDown)sender;
+            _shapeThickness = (float)selector.Value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            MyDialog.AllowFullOpen = true;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            MyDialog.Color = textBox1.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.BackColor = MyDialog.Color;
+                _shapeColor = MyDialog.Color;
+            }
         }
     }
 }
