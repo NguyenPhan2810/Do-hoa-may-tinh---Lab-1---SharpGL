@@ -1,6 +1,6 @@
 ﻿namespace Lab1_SharpGL
 {
-    partial class Form
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.openGLControl = new SharpGL.OpenGLControl();
-            this.shapeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.openGLControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,12 +38,12 @@
             this.openGLControl.BackColor = System.Drawing.Color.White;
             this.openGLControl.DrawFPS = false;
             this.openGLControl.FrameRate = 120;
-            this.openGLControl.Location = new System.Drawing.Point(108, 113);
+            this.openGLControl.Location = new System.Drawing.Point(12, 113);
             this.openGLControl.Name = "openGLControl";
             this.openGLControl.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
             this.openGLControl.RenderContextType = SharpGL.RenderContextType.DIBSection;
             this.openGLControl.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
-            this.openGLControl.Size = new System.Drawing.Size(664, 436);
+            this.openGLControl.Size = new System.Drawing.Size(760, 436);
             this.openGLControl.TabIndex = 0;
             this.openGLControl.OpenGLInitialized += new System.EventHandler(this.openGLControl_OpenGLInitialized);
             this.openGLControl.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
@@ -54,26 +53,12 @@
             this.openGLControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.openGLControl_MouseMove);
             this.openGLControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.openGLControl_MouseUp);
             // 
-            // shapeComboBox
-            // 
-            this.shapeComboBox.FormattingEnabled = true;
-            this.shapeComboBox.Items.AddRange(new object[] {
-            "Line",
-            "Rectangle"});
-            this.shapeComboBox.Location = new System.Drawing.Point(12, 12);
-            this.shapeComboBox.Name = "shapeComboBox";
-            this.shapeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.shapeComboBox.TabIndex = 1;
-            this.shapeComboBox.Text = "Shape";
-            this.shapeComboBox.SelectedIndexChanged += new System.EventHandler(this.shapeComboBox_SelectedIndexChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.shapeComboBox);
             this.Controls.Add(this.openGLControl);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -89,7 +74,6 @@
         #endregion
 
         private SharpGL.OpenGLControl openGLControl;
-        private System.Windows.Forms.ComboBox shapeComboBox;
     }
 }
 
